@@ -12,7 +12,6 @@ namespace BuggyApp.Controllers
         public IActionResult GetInvoice()
         {
             List<Invoice> invoices = new ArrayList<Invoice>();
-
             Item itemLocal1 = new Item("Chips", 10);
             Item itemLocal2 = new Item("Juice", 25);
             List<Item> listAllItems1 = new ArrayList<Item>();
