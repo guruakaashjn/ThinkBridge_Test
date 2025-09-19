@@ -1,0 +1,66 @@
+openapi: 3.0.4
+info:
+  title: Swagger for ThinkBridge Test
+  description: |-
+    Swagger Documentation for ThinkBridge Technical test 2.
+  contact:
+    email: gurujnn@gmail.com
+tags:
+  - name: invoice
+    description: invoices APIs
+paths:
+  /api/invoice:
+    get:
+      tags:
+        - invoice
+      summary: Get all invoices.
+      description: Get all invoices as required.
+      operationId: getInvoice
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Invoices"
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Invoices:
+      type: Object
+      properties:
+        id: array
+        items:
+          $ref: "#/components/schemas/Invoice"
+    Invoice:
+      type: Object
+      properties:
+        invoiceId:
+          type: integer
+          format: int64
+        customerName:
+          type: string
+          example: John Doe
+        itemId:
+          type: integer
+          format: int64
+        itemName:
+          type: string
+          example: Cola
+        price:
+          type: float
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message
