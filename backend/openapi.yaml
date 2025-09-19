@@ -5,6 +5,7 @@ info:
     Swagger Documentation for ThinkBridge Technical test 2.
   contact:
     email: gurujnn@gmail.com
+  version: 1.0.12
 tags:
   - name: invoice
     description: invoices APIs
@@ -32,13 +33,13 @@ paths:
 components:
   schemas:
     Invoices:
-      type: Object
+      type: object
       properties:
-        id: array
+        type: array
         items:
           $ref: "#/components/schemas/Invoice"
     Invoice:
-      type: Object
+      type: object
       properties:
         invoiceId:
           type: integer
@@ -53,7 +54,7 @@ components:
           type: string
           example: Cola
         price:
-          type: float
+          type: number
     Error:
       type: object
       properties:
